@@ -35,7 +35,11 @@ export default function AuthBox({ user }) {
     const credentials = getCredentials();
     if (!credentials) return;
 
-    const { data, error } = await supabase.auth.signUp(credentials);
+    const { data, error } = await supabase.auth.signUp({
+      ...credentials,
+      // 가입 확인 메일의 링크를 누르면 지금 보고 있는 사이트(로컬 또는 Vercel)로 돌아옴
+      options: { emailRedirectTo: window.location.origin },
+    });
     if (error) {
       alert('회원가입 실패: ' + error.message);
       return;
