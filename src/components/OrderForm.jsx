@@ -39,7 +39,7 @@ function calculateTotal(order) {
   return (drink.price + sizePrice + optionPrice) * toQuantity(order.quantity);
 }
 
-export default function OrderForm({ user }) {
+export default function OrderForm() {
   const [order, setOrder] = useState(INITIAL);
   const [confirmMessage, setConfirmMessage] = useState('');
 
@@ -65,13 +65,6 @@ export default function OrderForm({ user }) {
   async function handleSubmit(e) {
     e.preventDefault(); // 페이지 새로고침 막기
 
-    // 로그인 검사
-    if (!user) {
-      alert('로그인 후 주문해주세요');
-      document.getElementById('email')?.focus();
-      return;
-    }
-
     const name = order.name.trim();
 
     // 이름 검사
@@ -92,7 +85,8 @@ export default function OrderForm({ user }) {
     const quantity = toQuantity(order.quantity);
     update('quantity', String(quantity));
 
-    // Supabase ssu_cafe 테이블에 주문 저장 (user_id는 DB에서 자동 입력)
+    // Supabase ssu_cafe 테이블에 주문 저장
+    // (로그인했으면 user_id가 DB에서 자동 입력, 비회원이면 비어 있음)
     const { error } = await supabase.from('ssu_cafe').insert({
       customer_name: name,
       phone: order.phone.trim() || null,

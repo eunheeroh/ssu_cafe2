@@ -96,6 +96,7 @@ export default function AuthBox({ user }) {
         <button type="submit" className="btn btn-order">로그인</button>
         <button type="button" className="btn btn-reset" onClick={handleSignup}>회원가입</button>
       </div>
+      <p className="auth-hint">로그인 없이도 바로 주문할 수 있어요</p>
     </form>
   );
 }

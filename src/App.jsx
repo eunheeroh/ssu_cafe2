@@ -25,7 +25,7 @@ export default function App() {
       </header>
 
       <AuthBox user={user} />
-      <OrderForm user={user} />
+      <OrderForm />
     </div>
   );
 }

@@ -47,6 +47,12 @@ create policy "회원 주문 추가" on public.ssu_cafe
   for insert to authenticated
   with check (user_id = auth.uid());
 
+-- 비회원(로그인 안 한 손님)도 주문 추가 가능 (user_id는 비워 둔 채로만)
+drop policy if exists "비회원 주문 추가" on public.ssu_cafe;
+create policy "비회원 주문 추가" on public.ssu_cafe
+  for insert to anon
+  with check (user_id is null);
+
 -- 로그인한 회원은 자기 주문만 조회 가능
 drop policy if exists "회원 본인 주문 조회" on public.ssu_cafe;
 create policy "회원 본인 주문 조회" on public.ssu_cafe
