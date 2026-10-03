@@ -1,0 +1,209 @@
+/* ===== 전체 기본 스타일 ===== */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 24px 16px;
+  background: #faf6f0;            /* 베이지 배경 */
+  color: #3e2a1c;
+  font-family: '맑은 고딕', 'Malgun Gothic', sans-serif;
+}
+
+/* 최대 너비 520px, 가운데 정렬 카드 */
+.container {
+  max-width: 520px;
+  margin: 0 auto;
+  padding: 28px 24px;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(107, 66, 38, 0.12);  /* 부드러운 그림자 */
+}
+
+/* ===== 페이지 상단 ===== */
+.header {
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.logo {
+  font-size: 64px;
+  line-height: 1;
+}
+
+.header h1 {
+  margin: 8px 0 4px;
+  color: #6b4226;
+}
+
+.subtitle {
+  margin: 0;
+  color: #9c7a5e;
+  font-size: 14px;
+}
+
+/* ===== 회원 로그인 영역 ===== */
+.auth-box {
+  margin-bottom: 24px;
+  padding: 16px;
+  background: #faf6f0;
+  border-radius: 12px;
+}
+
+.user-box {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: bold;
+  color: #6b4226;
+}
+
+.user-box[hidden] {
+  display: none;
+}
+
+.btn-logout {
+  margin-left: auto;
+  padding: 8px 14px;
+  border: 1px solid #6b4226;
+  border-radius: 8px;
+  background: #fff;
+  color: #6b4226;
+  font-family: inherit;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.btn-logout:hover {
+  background: #eee3d6;
+}
+
+/* ===== 입력 항목 ===== */
+.field {
+  margin-bottom: 18px;
+}
+
+/* fieldset 기본 테두리 제거 */
+fieldset.field {
+  border: none;
+  padding: 0;
+}
+
+.field > label,
+legend {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: bold;
+  color: #6b4226;
+}
+
+.required {
+  color: #d9534f;
+}
+
+/* 입력칸: 너비 100%, 패딩 10px, 둥근 모서리 8px */
+input[type="text"],
+input[type="tel"],
+input[type="email"],
+input[type="password"],
+input[type="number"],
+select,
+textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #d8c7b5;
+  border-radius: 8px;
+  font-family: inherit;
+  font-size: 15px;
+  background: #fffdfa;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+/* 포커스 시 갈색 테두리 + 연한 갈색 그림자 */
+input:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+  border-color: #6b4226;
+  box-shadow: 0 0 0 3px rgba(107, 66, 38, 0.2);
+}
+
+textarea {
+  resize: vertical;
+}
+
+/* 라디오/체크박스: 가로 배치 + gap 간격 */
+.inline-group {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 16px;
+}
+
+.inline-group label {
+  margin-left: -12px;   /* input과 label을 붙여 보이게 */
+  cursor: pointer;
+}
+
+.inline-group input {
+  accent-color: #6b4226;
+  cursor: pointer;
+}
+
+/* ===== 예상 금액 ===== */
+.total-price {
+  margin: 24px 0 16px;
+  font-size: 24px;
+  font-weight: bold;
+  color: #6b4226;
+  text-align: center;
+}
+
+/* ===== 버튼 ===== */
+.buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.btn {
+  flex: 1;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  font-family: inherit;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+/* 주문하기 버튼: 갈색 배경, 흰 글씨 */
+.btn-order {
+  background: #6b4226;
+  color: #fff;
+}
+
+/* hover 시 약간 밝게 */
+.btn-order:hover {
+  background: #855533;
+}
+
+.btn-reset {
+  background: #eee3d6;
+  color: #6b4226;
+}
+
+.btn-reset:hover {
+  background: #e3d4c3;
+}
+
+/* ===== 주문 확인 메시지: 연두색 배경, 초록 글씨 ===== */
+.confirm-message {
+  margin-top: 20px;
+  padding: 14px 16px;
+  background: #e6f7d9;
+  color: #2e7d32;
+  border-radius: 10px;
+  line-height: 1.5;
+}
